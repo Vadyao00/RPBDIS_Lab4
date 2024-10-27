@@ -1,8 +1,71 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model RPBDIS_Lab4.ViewModels.HomeViewModel
+@{
+    ViewData["Title"] = "Фильмы";
 }
 
-<div class="text-center">
-    <h1 class="display-4">WW</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<table border="0" cellspacing="100">
+    <tr>
+        <td>
+            <table border="1">
+                <caption>Жанры</caption>
+                <tr>
+                    <th>Код жанра</th>
+                    <th>Название жанра</th>
+                    <th>Описание жанра</th>
+                </tr>
+                @foreach (var genre in Model.Genres)
+                {
+                    <tr>
+                        <td>@genre.GenreId</td>
+                        <td>@genre.Name</td>
+                        <td>@genre.Description</td>
+                    </tr>
+                }
+            </table>
+        </td>
+
+        <td>
+            <table border="1">
+                <caption>Актеры</caption>
+                <tr>
+                    <th>Код актера</th>
+                    <th>Имя актера</th>
+                    <th></th>
+                </tr>
+                @foreach (var actor in Model.Actors)
+                {
+                    <tr>
+                        <td>@actor.ActorId</td>
+                        <td>@actor.Name</td>
+                    </tr>
+                }
+            </table>
+        </td>
+    </tr>
+</table>
+<table border="1">
+    <caption>Фильмы</caption>
+    <tr>
+        <th>Код фильма</th>
+        <th>Название</th>
+        <th>Продолжительность</th>
+        <th>Компания</th>
+        <th>Страна</th>
+        <th>Возрастное ограничение</th>
+        <th>Описание</th>
+        <th>Жанр</th>
+    </tr>
+    @foreach (var movie in Model.Movies)
+    {
+        <tr>
+            <td>@movie.MovieId</td>
+            <td>@movie.Title</td>
+            <td>@movie.Duration</td>
+            <td>@movie.ProductionCompany</td>
+            <td>@movie.Country</td>
+            <td>@movie.AgeRestriction</td>
+            <td>@movie.Description</td>
+            <td>@movie.Genre</td>
+        </tr>
+    }
+</table>
