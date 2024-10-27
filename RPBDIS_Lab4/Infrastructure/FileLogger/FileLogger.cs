@@ -1,4 +1,4 @@
-﻿namespace FuelStation.Infrastructure
+﻿namespace RPBDIS_Lab4.Infrastructure
 {
     public class FileLogger(string path) : ILogger
     {

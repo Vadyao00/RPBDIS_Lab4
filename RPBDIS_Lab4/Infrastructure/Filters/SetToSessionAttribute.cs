@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using RPBDIS_Lab4.Infrastructure;
 
-namespace FuelStation.Infrastructure.Filters
+namespace RPBDIS_Lab4.Infrastructure.Filters
 {
     //Фильтр действий для запись в сессию данных из ModelState
     public class SetToSessionAttribute(string name) : Attribute, IActionFilter

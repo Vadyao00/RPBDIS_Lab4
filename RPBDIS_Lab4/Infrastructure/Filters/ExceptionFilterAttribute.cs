@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace FuelStation.Infrastructure.Filters
+namespace RPBDIS_Lab4.Infrastructure.Filters
 {
     //Фильтр исключений
     public class ExceptionFilterAttribute : Attribute, IExceptionFilter

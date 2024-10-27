@@ -1,0 +1,57 @@
+﻿@using RPBDIS_Lab4.ViewModels
+@model MoviesViewModel
+@{
+    ViewData["Title"] = "Фильмы";
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string Genre = Model.MovieViewModel.Genre;
+}
+<h2>Фильмы</h2>
+
+@using (Html.BeginForm("Index", "Movies", FormMethod.Post))
+
+{
+    <fieldset>
+        Наименование жанра: @Html.TextBox("Genre", Model.MovieViewModel.Genre)
+        <input type="submit" value="Найти" />
+    </fieldset>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Movies.FirstOrDefault().Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MovieViewModel.Title)
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder=@Model.MovieViewModel.SortViewModel.GenreSort>
+                    @Html.DisplayNameFor(model => model.MovieViewModel.Genre)
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Movies)
+
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre.Name)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<page-link page-model="Model.PageViewModel" page-action="Index"
+           page-url-FuelType="@Genre"
+           page-url-sortOrder="@(Model.MovieViewModel.SortViewModel.CurrentState)"></page-link>

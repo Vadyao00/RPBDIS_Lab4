@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace RPBDIS_Lab4.Infrastructure
 {
@@ -9,13 +10,11 @@ namespace RPBDIS_Lab4.Infrastructure
         {
             session.SetString(key, JsonConvert.SerializeObject(value));
         }
-        //Считывание параметризованного объекта из сессии
         public static T Get<T>(this ISession session, string key)
         {
             var value = session.GetString(key);
             return value == null ? default : JsonConvert.DeserializeObject<T>(value);
         }
-        //Запись объекта типа Dictionary<string, string> в сессию
         public static void Set(this ISession session, string key, Dictionary<string, string> dictionary)
         {
             session.SetString(key, JsonConvert.SerializeObject(dictionary));
