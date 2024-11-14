@@ -18,6 +18,7 @@ namespace RPBDIS_Lab4.Middleware
             return _next.Invoke(context);
         }
     }
+
     public static class DbInitializerExtensions
     {
         public static IApplicationBuilder UseDbInitializer(this IApplicationBuilder builder)
