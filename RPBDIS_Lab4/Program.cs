@@ -33,7 +33,7 @@ namespace RPBDIS_Lab4
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            //new logic
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
